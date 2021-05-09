@@ -1,4 +1,4 @@
-# Install script for directory: /home/ashwin/Desktop/percep-artag-detection
+# Install script for directory: /home/vsilai/percep-artag-detection
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ashwin/Desktop/percep-artag-detection/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/vsilai/percep-artag-detection/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

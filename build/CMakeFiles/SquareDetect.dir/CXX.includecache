@@ -6,18 +6,20 @@
 
 #IncludeRegexTransform: 
 
-/home/ashwin/Desktop/percep-artag-detection/cornerDetection.cpp
+/home/vsilai/percep-artag-detection/cornerDetection.cpp
 opencv2/imgcodecs.hpp
-/home/ashwin/Desktop/percep-artag-detection/opencv2/imgcodecs.hpp
+/home/vsilai/percep-artag-detection/opencv2/imgcodecs.hpp
 opencv2/highgui.hpp
-/home/ashwin/Desktop/percep-artag-detection/opencv2/highgui.hpp
+/home/vsilai/percep-artag-detection/opencv2/highgui.hpp
 opencv2/imgproc.hpp
-/home/ashwin/Desktop/percep-artag-detection/opencv2/imgproc.hpp
+/home/vsilai/percep-artag-detection/opencv2/imgproc.hpp
 opencv2/core.hpp
-/home/ashwin/Desktop/percep-artag-detection/opencv2/core.hpp
+/home/vsilai/percep-artag-detection/opencv2/core.hpp
 iostream
 -
 vector
+-
+string
 -
 
 /usr/local/include/opencv/cxcore.h
