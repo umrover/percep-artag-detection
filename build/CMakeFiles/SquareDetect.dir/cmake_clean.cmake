@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SquareDetect.dir/squareDetection.cpp.o"
+  "CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o"
   "SquareDetect.pdb"
   "SquareDetect"
 )

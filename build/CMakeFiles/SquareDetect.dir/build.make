@@ -57,38 +57,38 @@ include CMakeFiles/SquareDetect.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/SquareDetect.dir/flags.make
 
-CMakeFiles/SquareDetect.dir/squareDetection.cpp.o: CMakeFiles/SquareDetect.dir/flags.make
-CMakeFiles/SquareDetect.dir/squareDetection.cpp.o: ../squareDetection.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ashwin/Desktop/percep-artag-detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SquareDetect.dir/squareDetection.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SquareDetect.dir/squareDetection.cpp.o -c /home/ashwin/Desktop/percep-artag-detection/squareDetection.cpp
+CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o: CMakeFiles/SquareDetect.dir/flags.make
+CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o: ../cornerDetection.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ashwin/Desktop/percep-artag-detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o -c /home/ashwin/Desktop/percep-artag-detection/cornerDetection.cpp
 
-CMakeFiles/SquareDetect.dir/squareDetection.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SquareDetect.dir/squareDetection.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ashwin/Desktop/percep-artag-detection/squareDetection.cpp > CMakeFiles/SquareDetect.dir/squareDetection.cpp.i
+CMakeFiles/SquareDetect.dir/cornerDetection.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SquareDetect.dir/cornerDetection.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ashwin/Desktop/percep-artag-detection/cornerDetection.cpp > CMakeFiles/SquareDetect.dir/cornerDetection.cpp.i
 
-CMakeFiles/SquareDetect.dir/squareDetection.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SquareDetect.dir/squareDetection.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ashwin/Desktop/percep-artag-detection/squareDetection.cpp -o CMakeFiles/SquareDetect.dir/squareDetection.cpp.s
+CMakeFiles/SquareDetect.dir/cornerDetection.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SquareDetect.dir/cornerDetection.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ashwin/Desktop/percep-artag-detection/cornerDetection.cpp -o CMakeFiles/SquareDetect.dir/cornerDetection.cpp.s
 
-CMakeFiles/SquareDetect.dir/squareDetection.cpp.o.requires:
+CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o.requires:
 
-.PHONY : CMakeFiles/SquareDetect.dir/squareDetection.cpp.o.requires
+.PHONY : CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o.requires
 
-CMakeFiles/SquareDetect.dir/squareDetection.cpp.o.provides: CMakeFiles/SquareDetect.dir/squareDetection.cpp.o.requires
-	$(MAKE) -f CMakeFiles/SquareDetect.dir/build.make CMakeFiles/SquareDetect.dir/squareDetection.cpp.o.provides.build
-.PHONY : CMakeFiles/SquareDetect.dir/squareDetection.cpp.o.provides
+CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o.provides: CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o.requires
+	$(MAKE) -f CMakeFiles/SquareDetect.dir/build.make CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o.provides.build
+.PHONY : CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o.provides
 
-CMakeFiles/SquareDetect.dir/squareDetection.cpp.o.provides.build: CMakeFiles/SquareDetect.dir/squareDetection.cpp.o
+CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o.provides.build: CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o
 
 
 # Object files for target SquareDetect
 SquareDetect_OBJECTS = \
-"CMakeFiles/SquareDetect.dir/squareDetection.cpp.o"
+"CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o"
 
 # External object files for target SquareDetect
 SquareDetect_EXTERNAL_OBJECTS =
 
-SquareDetect: CMakeFiles/SquareDetect.dir/squareDetection.cpp.o
+SquareDetect: CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o
 SquareDetect: CMakeFiles/SquareDetect.dir/build.make
 SquareDetect: /usr/local/lib/libopencv_shape.so.3.2.0
 SquareDetect: /usr/local/lib/libopencv_stitching.so.3.2.0
@@ -117,7 +117,7 @@ CMakeFiles/SquareDetect.dir/build: SquareDetect
 
 .PHONY : CMakeFiles/SquareDetect.dir/build
 
-CMakeFiles/SquareDetect.dir/requires: CMakeFiles/SquareDetect.dir/squareDetection.cpp.o.requires
+CMakeFiles/SquareDetect.dir/requires: CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o.requires
 
 .PHONY : CMakeFiles/SquareDetect.dir/requires
 

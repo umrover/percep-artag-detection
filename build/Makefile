@@ -123,32 +123,32 @@ SquareDetect/fast:
 	$(MAKE) -f CMakeFiles/SquareDetect.dir/build.make CMakeFiles/SquareDetect.dir/build
 .PHONY : SquareDetect/fast
 
-squareDetection.o: squareDetection.cpp.o
+cornerDetection.o: cornerDetection.cpp.o
 
-.PHONY : squareDetection.o
+.PHONY : cornerDetection.o
 
 # target to build an object file
-squareDetection.cpp.o:
-	$(MAKE) -f CMakeFiles/SquareDetect.dir/build.make CMakeFiles/SquareDetect.dir/squareDetection.cpp.o
-.PHONY : squareDetection.cpp.o
+cornerDetection.cpp.o:
+	$(MAKE) -f CMakeFiles/SquareDetect.dir/build.make CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o
+.PHONY : cornerDetection.cpp.o
 
-squareDetection.i: squareDetection.cpp.i
+cornerDetection.i: cornerDetection.cpp.i
 
-.PHONY : squareDetection.i
+.PHONY : cornerDetection.i
 
 # target to preprocess a source file
-squareDetection.cpp.i:
-	$(MAKE) -f CMakeFiles/SquareDetect.dir/build.make CMakeFiles/SquareDetect.dir/squareDetection.cpp.i
-.PHONY : squareDetection.cpp.i
+cornerDetection.cpp.i:
+	$(MAKE) -f CMakeFiles/SquareDetect.dir/build.make CMakeFiles/SquareDetect.dir/cornerDetection.cpp.i
+.PHONY : cornerDetection.cpp.i
 
-squareDetection.s: squareDetection.cpp.s
+cornerDetection.s: cornerDetection.cpp.s
 
-.PHONY : squareDetection.s
+.PHONY : cornerDetection.s
 
 # target to generate assembly for a file
-squareDetection.cpp.s:
-	$(MAKE) -f CMakeFiles/SquareDetect.dir/build.make CMakeFiles/SquareDetect.dir/squareDetection.cpp.s
-.PHONY : squareDetection.cpp.s
+cornerDetection.cpp.s:
+	$(MAKE) -f CMakeFiles/SquareDetect.dir/build.make CMakeFiles/SquareDetect.dir/cornerDetection.cpp.s
+.PHONY : cornerDetection.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... SquareDetect"
 	@echo "... edit_cache"
-	@echo "... squareDetection.o"
-	@echo "... squareDetection.i"
-	@echo "... squareDetection.s"
+	@echo "... cornerDetection.o"
+	@echo "... cornerDetection.i"
+	@echo "... cornerDetection.s"
 .PHONY : help
 
 

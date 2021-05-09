@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
 project("square detect")
 find_package( OpenCV REQUIRED )
-add_executable(SquareDetect squareDetection.cpp)
+add_executable(SquareDetect cornerDetection.cpp)
 target_link_libraries( SquareDetect ${OpenCV_LIBS} )

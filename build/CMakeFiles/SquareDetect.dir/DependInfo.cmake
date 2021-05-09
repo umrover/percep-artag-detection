@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ashwin/Desktop/percep-artag-detection/squareDetection.cpp" "/home/ashwin/Desktop/percep-artag-detection/build/CMakeFiles/SquareDetect.dir/squareDetection.cpp.o"
+  "/home/ashwin/Desktop/percep-artag-detection/cornerDetection.cpp" "/home/ashwin/Desktop/percep-artag-detection/build/CMakeFiles/SquareDetect.dir/cornerDetection.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
