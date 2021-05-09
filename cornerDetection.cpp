@@ -11,20 +11,15 @@ using namespace std;
 void cornerDetection(const Mat &image) {
     imshow("Original Image", image);
 
-    int maxCorners = 60;
-    vector<Point2f> corners;
-    double qualityLevel = 0.01;
-    double minDistance = 10;
-    int blockSize = 3, gradientSize = 3;
-    bool useHarrisDetector = false;
-    double k = 0.04;
-
     Mat imgGray, whiteCopy;
     whiteCopy = image.clone();
     whiteCopy.setTo(Scalar(255, 255, 255));
     cvtColor( image, imgGray, COLOR_BGR2GRAY );
 
-    int morph_size = 1;
+    Mat filter;
+    bilateralFilter(imgGray, filter, 15, 80, 80, BORDER_DEFAULT);
+    imshow("Filtering", filter);
+    /* int morph_size = 1;
     Mat original = imgGray;
     Mat dst;
     Mat element = getStructuringElement(MORPH_RECT, Size( 2*morph_size + 1, 2*morph_size + 1 ), 
@@ -34,8 +29,15 @@ void cornerDetection(const Mat &image) {
 
     Mat blur;
     GaussianBlur(dst, blur, Size(5,5), 0);
-    imshow("Blur", blur);
-    goodFeaturesToTrack( blur,
+    imshow("Blur", blur); */
+    int maxCorners = 60;
+    vector<Point2f> corners;
+    double qualityLevel = 0.01;
+    double minDistance = 10;
+    int blockSize = 3, gradientSize = 3;
+    bool useHarrisDetector = false;
+    double k = 0.04;
+    goodFeaturesToTrack( filter,
                          corners,
                          maxCorners,
                          qualityLevel,
@@ -52,7 +54,7 @@ void cornerDetection(const Mat &image) {
     imshow("Points", whiteCopy);
     Mat labels;
     Mat centers;
-    int clusterCount = 11;
+    int clusterCount = 10;
     kmeans(corners, clusterCount, labels, TermCriteria(TermCriteria::EPS+TermCriteria::COUNT, 10, 1.0),
             3, KMEANS_PP_CENTERS, centers);
 
@@ -70,7 +72,7 @@ void cornerDetection(const Mat &image) {
 }
 
 int main() {
-    vector<string> jpgs = {"0151.jpg", "0155.jpg", "0160.jpg", "0164.jpg", "0170.jpg", 
+    vector<string> jpgs = {"0126.jpg", "0151.jpg", "0155.jpg", "0160.jpg", "0164.jpg", "0170.jpg", 
                             "0177.jpg", "0183.jpg", "0191.jpg", "0197.jpg", "0200.jpg",
                             "0204.jpg", "0210.jpg"};
     for (size_t i = 0; i < jpgs.size(); ++i) {
