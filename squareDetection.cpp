@@ -1,15 +1,14 @@
 // The "Square Detector" program.
-// It loads several images sequentially and tries to find squares in
-// each image
+// It loads several images sequentially and tries to find squares in each image
 #include "opencv2/core.hpp"
 #include "opencv2/imgproc.hpp"
 #include "opencv2/imgcodecs.hpp"
 #include "opencv2/highgui.hpp"
 #include "opencv2/ximgproc.hpp"
+#include <opencv2/core/utility.hpp>
 #include <iostream>
 #include <cmath>
 #include <string>
-#include <chrono>
 
 using namespace cv;
 using namespace std;
@@ -33,7 +32,6 @@ static void findSquares(const Mat& image, vector<vector<Point> >& squares) {
     squares.clear();
     Mat pyr, timg, gray0(image.size(), CV_8U), gray, dst;
     // down-scale and upscale the image to filter out the noise
-    auto start = high_resolution_clock::now();
     pyrDown(image, pyr, Size(image.cols/2, image.rows/2));
     pyrUp(pyr, timg, image.size());
     vector<vector<Point> > contours;
@@ -42,23 +40,22 @@ static void findSquares(const Mat& image, vector<vector<Point> >& squares) {
         int ch[] = {c, 0};
         mixChannels(&timg, 1, &gray0, 1, ch, 1);
         // Apply Canny. Take the upper threshold from slider and set the lower to 0 (which forces edges merging)
-        Canny(gray0, gray, 0, thresh, 5);
-        imshow("Canny", gray);      
+        Canny(gray0, gray, 0, thresh, 7);      
         // dilate canny output to remove potential between edge segments
-        dilate(gray, gray, Mat(), Point(-1,-1));
+        //dilate(gray, gray, Mat(), Point(-1,-1));
+        erode (gray, gray, Mat(), Point(-1,1));
         // find contours and store them all as a list
         findContours(gray, contours, RETR_LIST, CHAIN_APPROX_SIMPLE);
         vector<Point> approx;
         // test each contour
         for(size_t i = 0; i < contours.size(); i++) {
-            // approximate contour with accuracy proportional
-            // to the contour perimeter
-            approxPolyDP(contours[i], approx, arcLength(contours[i], true)*0.08, true);
+            // approximate contour with accuracy proportional to the contour perimeter
+            approxPolyDP(contours[i], approx, arcLength(contours[i], true) * 0.08, true);
             // square contours should have 4 vertices after approximation relatively large area (to filter out noisy contours) and be convex.
             // Note: absolute value of an area is used because area may be positive or negative - in accordance with the contour orientation
-            if(approx.size() == 4 && fabs(contourArea(approx)) > 400 && isContourConvex(approx)) {
+            if(approx.size() == 4 && fabs(contourArea(approx)) > 400 && isContourConvex(approx) || approx.size() == 6 && fabs(contourArea(approx)) > 400) {
                 double maxCosine = 0;
-                for( int j = 2; j < 5; j++ ) {
+                for(int j = 2; j < 5; j++) {
                     // find the maximum cosine of the angle between joint edges
                     double cosine = fabs(angle(approx[j%4], approx[j-2], approx[j-1]));
                     maxCosine = MAX(maxCosine, cosine);
@@ -70,23 +67,25 @@ static void findSquares(const Mat& image, vector<vector<Point> >& squares) {
         }
         
     }
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<milliseconds>(stop-start);
-    cout << duration.count() << endl;
 }
 
 int main(int argc, char** argv) {
     string filename, filenameTemp;
+    
+    /* Mat image = imread("squaretest.jpg", IMREAD_COLOR);
+    vector<vector<Point>> squares;
+    findSquares(image, squares);
+    polylines(image, squares, true, Scalar(0, 255, 0), 3, LINE_AA);
+    imshow(wndname, image); 
+    int c = waitKey(0); */
+
     for (int i = 120; i < 212; ++i) {
         if (i < 10) {
             string iString = to_string(i);
             filenameTemp = "000" + iString + ".jpg";
-            filename = samples::findFile(filenameTemp);
+            filename = cv::samples::findFile(filenameTemp);
+            
             Mat image = imread(filename, IMREAD_COLOR);
-            if(image.empty()) {
-                cout << "Couldn't load " << filename << endl;
-                continue;
-            }
             vector<vector<Point>> squares;
             findSquares(image, squares);
             polylines(image, squares, true, Scalar(0, 255, 0), 3, LINE_AA);
@@ -96,12 +95,9 @@ int main(int argc, char** argv) {
         if (i >= 10 && i < 100) {
             string iString = to_string(i);
             filenameTemp = "00" + iString + ".jpg";
-            filename = samples::findFile(filenameTemp);
+            filename = cv::samples::findFile(filenameTemp);
+            
             Mat image = imread(filename, IMREAD_COLOR);
-            if(image.empty()) {
-                cout << "Couldn't load " << filename << endl;
-                continue;
-            }
             vector<vector<Point>> squares;
             findSquares(image, squares);
             polylines(image, squares, true, Scalar(0, 255, 0), 3, LINE_AA);
@@ -112,17 +108,17 @@ int main(int argc, char** argv) {
             
             string iString = to_string(i);
             filenameTemp = "0" + iString + ".jpg";
-            filename = samples::findFile(filenameTemp);  
+            filename = cv::samples::findFile(filenameTemp); 
+            
             Mat image = imread(filename, IMREAD_COLOR);
             vector<vector<Point>> squares;
             
             findSquares(image, squares);
             polylines(image, squares, true, Scalar(0, 255, 0), 3, LINE_AA);
-            auto stop = high_resolution_clock::now();
             imshow(wndname, image);
             int c = waitKey(0);
         }
-    }
+    } 
     return 0;
 
     //g++ $(pkg-config --cflags --libs opencv4) -std=c++11 -o squareDetection squareDetection.cpp
