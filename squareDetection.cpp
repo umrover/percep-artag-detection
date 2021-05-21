@@ -40,13 +40,17 @@ static void findSquares(const Mat& image, vector<vector<Point> >& squares) {
         int ch[] = {c, 0};
         mixChannels(&timg, 1, &gray0, 1, ch, 1);
         // Apply Canny. Take the upper threshold from slider and set the lower to 0 (which forces edges merging)
-        Canny(gray0, gray, 0, thresh, 7);      
+        
+        Canny(gray0, gray, 500, 500*2, 5);
+        imshow("Canny", gray);      
         // dilate canny output to remove potential between edge segments
-        //dilate(gray, gray, Mat(), Point(-1,-1));
-        erode (gray, gray, Mat(), Point(-1,1));
+        dilate(gray, gray, Mat(), Point(-1,-1));
+        imshow("Dialated", gray);      
+
         // find contours and store them all as a list
         findContours(gray, contours, RETR_LIST, CHAIN_APPROX_SIMPLE);
         vector<Point> approx;
+        drawContours(image, contours, -1, Scalar(255, 0, 0));
         // test each contour
         for(size_t i = 0; i < contours.size(); i++) {
             // approximate contour with accuracy proportional to the contour perimeter
