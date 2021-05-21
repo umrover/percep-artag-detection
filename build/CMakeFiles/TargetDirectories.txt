@@ -1,3 +1,0 @@
-/home/ashwin/Desktop/percep-artag-detection/build/CMakeFiles/rebuild_cache.dir
-/home/ashwin/Desktop/percep-artag-detection/build/CMakeFiles/SquareDetect.dir
-/home/ashwin/Desktop/percep-artag-detection/build/CMakeFiles/edit_cache.dir
